@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.Scanner;
 import java.util.function.Function;
 
@@ -27,5 +28,15 @@ public class beaUtils {
             break;
         }
         return returningInformation;
+    }
+
+    protected static boolean userInputBoolean(String userInput) {
+        String formattedUserInput = userInput.toLowerCase().trim();
+        return formattedUserInput.equals("y") || formattedUserInput.equals("yes");
+    }
+
+    protected static boolean userInputBoolean(String UserInput, HashSet<String> trueValues) {
+        String formattedUserInput = UserInput.toLowerCase().trim();
+        return trueValues.contains(formattedUserInput);
     }
 }
