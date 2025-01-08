@@ -51,4 +51,20 @@ public class beaUtils {
         String formattedUserInput = UserInput.toLowerCase().trim();
         return trueValues.contains(formattedUserInput);
     }
+
+    /**
+     * Retry provided code until it doesn't throw any errors
+     * @param codeToRun Input lambda to run until it passes [Think () -> code]
+     * @return Output of parameter lambda
+     * @param Supplier<T> Supplier to hold provided lambda
+     */
+    private static <T> T retryUntilSuccess(Supplier<T> codeToRun) {
+        while (true) {
+            try {
+                return codeToRun.get();
+            } catch (Exception e) {
+                System.out.println(e.getMessage() + ". Retrying...");
+            }
+        }
+    }
 }
