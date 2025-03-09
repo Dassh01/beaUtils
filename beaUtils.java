@@ -67,4 +67,26 @@ public class beaUtils {
             }
         }
     }
+
+    /**
+     * Rounds the input param to the amount of decimal places provided as the (int) second param
+     * @param input Double to be rounded
+     * @param decimalPlacesToRoundTo Decimal places to round to (EX: 4.2456 rounded to 2 would be 4.25) 
+     * @return Formatted double rounded
+     */
+    public static double roundAsDouble(double input, int decimalPlacesToRoundTo) {
+        double scale = Math.pow(10, decimalPlacesToRoundTo);
+        return Math.round(input * scale) / scale;
+    }
+
+    /**
+     * Rounds the input to the amount of decimal places provided as the (int) second parameter
+     * @param input Double to be rounded
+     * @param decimalPlacesToRoundTo Decimal places to round to (EX: 4.2456 rounded to 2 would be 4.25)
+     * @return Formatted string of double rounded
+     */
+    public static String roundAsString(double input, int decimalPlacesToRoundTo) {
+        double rounded = roundAsDouble(input, decimalPlacesToRoundTo);
+        return String.format("%."+decimalPlacesToRoundTo+"f", rounded);
+    }
 }
