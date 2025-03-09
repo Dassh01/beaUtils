@@ -1,2 +1,3 @@
 # beaUtils
-cutesy little methods I want to keep between my APCSA/other projects C:
+A personalized utility library for Java projects. \
+Also check out [mstd](https://github.com/mopo3ob-jack/mstd)!

@@ -1,11 +1,18 @@
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class beaUtils {
     /**
-     * Comes from retyping user prompts and scanner methods over and over in APCSA projects :C
-     * Used to simplify above-mentioned process, does the prompt and scan all in one (now with an embedded try catch!) (InputMismatch be gone!)
+     * Prompts, scans and retries input collection from a user.
+     *
+     * EXAMPLE USAGE: String input = beaUtils.askForThing("What is your favorite cat breed?", Scanner::nextLine, scanner)
+     * The question that the user will be asked is "What is your favorite cat breed?", the method will expect a type String response due to
+     * Scanner::nextLine being employed as the second parameter. Finally, the method will use an already present system input scanner.
+     *
+     * Automatically flushes Scanner buffer in case of int response.
+     *
      * @param askText [String] Prompt the user is asked in console
      * @param inputFunction [Scanner] lambda method (i.e: Scanner::nextLine, Scanner::nextInt), dependent on what data type you want the function to return as its return type is generic
      * @param scanner [Scanner] (hopefully connected to System input...)
@@ -54,9 +61,8 @@ public class beaUtils {
 
     /**
      * Retry provided code until it doesn't throw any errors
-     * @param codeToRun Input lambda to run until it passes [Think () -> code]
+     * @param codeToRun Input lambda to run until it passes
      * @return Output of parameter lambda
-     * @param Supplier<T> Supplier to hold provided lambda
      */
     private static <T> T retryUntilSuccess(Supplier<T> codeToRun) {
         while (true) {
@@ -69,7 +75,7 @@ public class beaUtils {
     }
 
     /**
-     * Rounds the input param to the amount of decimal places provided as the (int) second param
+     * Rounds the input param to the number of decimal places provided as the (int) second param
      * @param input Double to be rounded
      * @param decimalPlacesToRoundTo Decimal places to round to (EX: 4.2456 rounded to 2 would be 4.25) 
      * @return Formatted double rounded
@@ -80,7 +86,7 @@ public class beaUtils {
     }
 
     /**
-     * Rounds the input to the amount of decimal places provided as the (int) second parameter
+     * Rounds the input to the number of decimal places provided as the (int) second parameter
      * @param input Double to be rounded
      * @param decimalPlacesToRoundTo Decimal places to round to (EX: 4.2456 rounded to 2 would be 4.25)
      * @return Formatted string of double rounded
