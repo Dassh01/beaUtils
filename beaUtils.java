@@ -93,6 +93,15 @@ public class beaUtils {
      */
     public static String roundAsString(double input, int decimalPlacesToRoundTo) {
         double rounded = roundAsDouble(input, decimalPlacesToRoundTo);
-        return String.format("%."+decimalPlacesToRoundTo+"f", rounded);
+        return String.valueOf(rounded);
     }
+
+    public static void halt(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
 }
