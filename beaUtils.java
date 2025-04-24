@@ -96,6 +96,11 @@ public class beaUtils {
         return String.valueOf(rounded);
     }
 
+    /**
+     * Glorified wrapper for Thread.sleep!
+     * Seriously should be easier then this
+     * @param millis Milliseconds to halt for
+     */
     public static void halt(long millis) {
         try {
             Thread.sleep(millis);
