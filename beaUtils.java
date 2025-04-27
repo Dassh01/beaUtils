@@ -3,6 +3,16 @@ import java.util.Scanner;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+/*
+//======================================\\
+||  ____                _      ___  _   ||
+|| |  _ \  __ _ ___ ___| |__  / _ \/ |  ||
+|| | | | |/ _` / __/ __| '_ \| | | | |  ||
+|| | |_| | (_| \__ \__ \ | | | |_| | |  ||
+|| |____/ \__,_|___/___/_| |_|\___/|_|  ||
+\\======================================//
+ */
+
 public class beaUtils {
     /**
      * Prompts, scans and retries input collection from a user.
